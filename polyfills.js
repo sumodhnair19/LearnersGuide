@@ -4,10 +4,7 @@ Array.prototype.mymap = function(callback) {
   var myarray = [];
   this.forEach(function(val, key) {
 
-    if (val == callback(val)) {
-      myarray.push(val);
-    }
-
+      myarray.push(callback(val));
   });
   return myarray;
 
