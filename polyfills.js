@@ -39,14 +39,6 @@ Array.prototype.myReducer = function(callback, start) {
 
 }
 
-function reverseString(input, index) {
-
-  var val = input.split('');
-  var currentval = val.slice(index, val.length);
-  console.log("reversed value is: ", currentval.reverse().join(''));
-
-}
-
 Array.prototype.unique = function() {
   var uniqueArr = [];
 
@@ -59,7 +51,27 @@ Array.prototype.unique = function() {
 
 }
 
-function returnRandomCombination(n) {
+const promiseAll = function(array){
+ return new Promise(function(resolve, reject){
+   var count = array.length;
+   var result = [];
+   var isDone = function() {
+     if(--count == 0) {
+       resolve(result);
+     }
+   }
+   array.forEach(function(val,key){
+     val.then(function(data){
+       result.push(data);
+     },reject).then(isDone);
+   })
+ });
+}
+
+
+const reverseString = (input, index) => input.split('').reverse().join('');
+
+const returnRandomCombination = function(n) {
 
   if (n === 1) {
 
@@ -77,10 +89,10 @@ function returnRandomCombination(n) {
 
 }
 
-var fibonacciSeries = function(input) {
+const fibonacciSeries = function(input) {
 
-  var fibonacciSeries = "";
-  var arr = [];
+  let fibonacciSeries = "";
+  let arr = [];
   arr[0] = 0;
   arr[1] = 1;
 
