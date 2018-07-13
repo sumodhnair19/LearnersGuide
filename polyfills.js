@@ -87,3 +87,16 @@ const fibonacciSeries = (input) => {
   }
   return fibonacciSeries;
 }
+
+const findMissingNumber = (array) => {
+array = array.sort((a,b) => a-b);
+let currentVal,nextVal,missingVal;
+for(let i=0; i < array.length; i++){
+  currentVal  = array[i]+1;
+  nextVal = array[i+1];
+  if(currentVal != nextVal && currentVal <= array[array.length-1]){
+	   missingVal = currentVal;
+   }
+ }
+return missingVal;
+}
