@@ -1,2 +1,2 @@
 # LearnersGuide
-React,Angular5,NodejS combo
+Guiide to Polyfills and frequently asked javascript programming questions.
